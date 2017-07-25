@@ -6,7 +6,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "com.example.masaakikakimoto.kotlinsample"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -40,7 +40,14 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.github.bumptech.glide:glide:3.7.0"
+
+    def rxlifecycleVersion = '0.6.1'
+    compile "com.trello:rxlifecycle-kotlin:$rxlifecycleVersion"
+    compile "com.trello:rxlifecycle-components:$rxlifecycleVersion"
+
+    compile "com.jakewharton:kotterknife:0.1.0-SNAPSHOT"
 }
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
 }

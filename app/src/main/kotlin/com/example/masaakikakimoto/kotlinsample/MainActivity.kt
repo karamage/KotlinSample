@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.ProgressBar
+import butterknife.bindView
 import com.example.masaakikakimoto.kotlinsample.client.ArticleClient
 import com.example.masaakikakimoto.kotlinsample.model.Article
 import com.example.masaakikakimoto.kotlinsample.model.User
@@ -20,15 +21,14 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
 class MainActivity : RxAppCompatActivity() {
+    val listView: ListView by bindView(R.id.list_view)
+    val progressBar: ProgressBar by bindView(R.id.progress_bar)
+    val searchButton: Button by bindView(R.id.search_button)
+    val queryEditText: EditText by bindView(R.id.query_edit_text)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val listView: ListView = findViewById(R.id.list_view) as ListView
-        val progressBar = findViewById(R.id.progress_bar) as ProgressBar
-        val queryEditText = findViewById(R.id.query_edit_text) as EditText
-        val searchButton = findViewById(R.id.search_button) as Button
 
         val listAdapter = ArticleListAdapter(applicationContext)
         listView.adapter = listAdapter
