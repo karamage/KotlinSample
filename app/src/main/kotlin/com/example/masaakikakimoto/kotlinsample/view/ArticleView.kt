@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.masaakikakimoto.kotlinsample.R
 import com.example.masaakikakimoto.kotlinsample.bindView
 import com.example.masaakikakimoto.kotlinsample.model.Article
+import kotlinx.android.synthetic.main.view_article.view.*
 
 /**
  * Created by masaakikakimoto on 2017/07/20.
@@ -28,17 +29,19 @@ class ArticleView: FrameLayout {
                 defStyleAttr: Int,
                 defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
+    /*
     val profileImageView: ImageView by bindView(R.id.profile_image_view)
     val titleTextView: TextView by bindView(R.id.title_text_view)
     val userNameTextView: TextView by bindView(R.id.user_name_text_view)
+    */
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_article, this)
     }
 
     fun setArticle(article: Article) {
-        titleTextView?.text = article.title
-        userNameTextView?.text = article.user.name
-        Glide.with(context).load(article.user.profileImageUrl).into(profileImageView)
+        title_text_view.text = article.title
+        user_name_text_view.text = article.user.name
+        Glide.with(context).load(article.user.profileImageUrl).into(profile_image_view)
     }
 }
