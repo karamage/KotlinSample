@@ -1,17 +1,15 @@
 package com.example.masaakikakimoto.kotlinsample.view
 
 import android.content.Context
-import android.graphics.Color
+import android.databinding.BindingMethod
+import android.databinding.BindingMethods
+import android.databinding.DataBindingUtil
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.masaakikakimoto.kotlinsample.R
-import com.example.masaakikakimoto.kotlinsample.bindView
+import com.example.masaakikakimoto.kotlinsample.databinding.ViewArticleBinding
 import com.example.masaakikakimoto.kotlinsample.model.Article
-import kotlinx.android.synthetic.main.view_article.view.*
 
 /**
  * Created by masaakikakimoto on 2017/07/20.
@@ -35,13 +33,19 @@ class ArticleView: FrameLayout {
     val userNameTextView: TextView by bindView(R.id.user_name_text_view)
     */
 
+    val binding: ViewArticleBinding
+
     init {
-        LayoutInflater.from(context).inflate(R.layout.view_article, this)
+        //LayoutInflater.from(context).inflate(R.layout.view_article, this)
+        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_article, this, true)
     }
 
     fun setArticle(article: Article) {
+        binding.article = article
+        /*
         title_text_view.text = article.title
         user_name_text_view.text = article.user.name
         Glide.with(context).load(article.user.profileImageUrl).into(profile_image_view)
+        */
     }
 }

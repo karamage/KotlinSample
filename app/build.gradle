@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
@@ -52,7 +53,8 @@ dependencies {
 
     compile "com.jakewharton:kotterknife:0.1.0-SNAPSHOT"
 
-    kapt "com.android.databinding:compiler:2.1.2"
+    //kapt "com.android.databinding:compiler:2.1.2"
+    kapt 'com.android.databinding:compiler:2.3.1'
     kapt 'com.google.guava:guava:19.0'
 }
 repositories {
