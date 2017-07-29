@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.example.masaakikakimoto.kotlinsample.view.ArticleView
-        android:id="@+id/article_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="article"
+            type="com.example.masaakikakimoto.kotlinsample.model.Article" />
+    </data>
 
-    <WebView
-        android:id="@+id/web_view"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <com.example.masaakikakimoto.kotlinsample.view.ArticleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:article="@{article}" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:loadUrl="@{article.url}" />
+    </LinearLayout>
+</layout>
